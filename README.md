@@ -13,12 +13,12 @@ Swift Package of DigitalProducts architecture related protocols for modular proj
    5. [Repository](#repository)
    6. [Storyboardable](#storyboardable)
 
-## Purpose
+## <span id="purpose">Purpose</span>
 This package was created to facilitate the building of clean, modular iOS applications with a standard and familiar architecture. It has been constructed by using industry best practices as well as the methods found to work best with DigitalProducts clients.
 
-## Protocols
-
-### Announceable
+## <span id="protocols">Protocols</span>
+_____
+### <span id="announceable">Announceable</span>
 The `Announceable` protocol is intended to help with making our apps accessible to the visually challenged.
 ##### Announce
  Allow conforming objects to have a message audibly read if voice over is currently running. Used primarily to announce changes in state.
@@ -43,10 +43,10 @@ final class MyViewController: Announceable {
     // the rest of the view controller code
 }
 ```
-&nbsp;
 
+_____
 
-#### Bindable
+#### <span id="bindable">Bindable</span>
 The `Bindable` protocol provides a standard interface for a view or viewController's internal elements to be bound to a view model.
 
 MyViewModel.swift implementation
@@ -108,11 +108,11 @@ Once the view model and view controller are defined and the view controller conf
     myViewController.setViewModel(to: viewModel) // causes `bindViewModel` to be called
 
 ```
-&nbsp;
 
+_____
 
-#### Coordinator
-Use of the [coordinator pattern](https://benoitpasquier.com/coordinator-pattern-swift/) simplifies the navigation of the app and allows the app to follow the single responsibility principle and separation of concerns by holding all navigation logic in one place and not spread out through the view controllers and view models.
+#### <span id="coordinator">Coordinator</span>
+Use of the [coordinator pattern](https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps) simplifies the navigation of the app and allows the app to follow the single responsibility principle and separation of concerns by holding all navigation logic in one place and not spread out through the view controllers and view models.
 
 ```Swift
 import SomeOtherFramework
@@ -165,24 +165,23 @@ struct MyViewModel {
     }
 }
 ```
-&nbsp;
+_____
 
-
-#### Logger
+#### <span id="logger">Logger</span>
 Logging is an important part of any robust application and can make debugging issues much easier.
 
 The `Logger` protocol is currently empty and will expanded as requirements become more clear.
-&nbsp;
 
+_____
 
-#### Repository
+#### <span id="repository">Repository</span>
 The [repository pattern](https://medium.com/tiendeo-tech/ios-repository-pattern-in-swift-85a8c62bf436) provides for abstraction of data. It is not necessarily needed in every module and should be implemented based on the needs of the specific module.
 
 The `Repository` protocol is currently empty and will be expanded as requirements become more clear.
-&nbsp;
 
+_____
 
-#### Storyboardable
+#### <span id="storyboardable">Storyboardable</span>
 The `Storyboardable` protocol is there to assist in instantiating view controllers from storyboards.
 
 **Important Note:** In order to work each view controller in the storyboard must have an identifier that matches the view controller name. e.g. - MyViewController.swift would have an identifier of MyViewController
