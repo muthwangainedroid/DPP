@@ -46,7 +46,7 @@ final class MyViewController: Announceable {
 
 _____
 
-#### <span id="bindable">Bindable</span>
+### <span id="bindable">Bindable</span>
 The `Bindable` protocol provides a standard interface for a view or viewController's internal elements to be bound to a view model.
 
 MyViewModel.swift implementation
@@ -111,7 +111,7 @@ Once the view model and view controller are defined and the view controller conf
 
 _____
 
-#### <span id="coordinator">Coordinator</span>
+### <span id="coordinator">Coordinator</span>
 Use of the [coordinator pattern](https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps) simplifies the navigation of the app and allows the app to follow the single responsibility principle and separation of concerns by holding all navigation logic in one place and not spread out through the view controllers and view models.
 
 ```Swift
@@ -167,21 +167,21 @@ struct MyViewModel {
 ```
 _____
 
-#### <span id="logger">Logger</span>
+### <span id="logger">Logger</span>
 Logging is an important part of any robust application and can make debugging issues much easier.
 
 The `Logger` protocol is currently empty and will expanded as requirements become more clear.
 
 _____
 
-#### <span id="repository">Repository</span>
+### <span id="repository">Repository</span>
 The [repository pattern](https://medium.com/tiendeo-tech/ios-repository-pattern-in-swift-85a8c62bf436) provides for abstraction of data. It is not necessarily needed in every module and should be implemented based on the needs of the specific module.
 
 The `Repository` protocol is currently empty and will be expanded as requirements become more clear.
 
 _____
 
-#### <span id="storyboardable">Storyboardable</span>
+### <span id="storyboardable">Storyboardable</span>
 The `Storyboardable` protocol is there to assist in instantiating view controllers from storyboards.
 
 **Important Note:** In order to work each view controller in the storyboard must have an identifier that matches the view controller name. e.g. - MyViewController.swift would have an identifier of MyViewController
