@@ -118,7 +118,7 @@ Use of the [coordinator pattern](https://www.hackingwithswift.com/articles/71/ho
 import SomeOtherFramework
 
 final class MyMainCoordinator: Coordinator {
-    private var children = [Coordinator]()
+    private var childCoordinator = Coordinator?
     private let navigationController: UINavigationController
 
     public init(navigationController: UINavigationController) {
@@ -144,8 +144,10 @@ final class MyMainCoordinator: Coordinator {
     }
 
     func anotherModuleScreen() {
-        let otherCoordinator = children.first(where: { ($0 as? OtherCoordinator) != nil })
-        otherCoordinator?.start() // go to the primary screen in the other module
+        let otherCoordinator = OtherCoordinator(with: navigationController)
+        childCoordinator = otherCoordinator
+        // go to the primary screen in the other module
+        otherCoordinator.start()
     }
 }
 

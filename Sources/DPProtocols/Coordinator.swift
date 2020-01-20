@@ -10,9 +10,8 @@ import UIKit
 
 /// Assists in the implemetation of the coordinator pattern, enabling simple navigation within and across modules
 public protocol Coordinator {
-    var children: [Coordinator] { get set }
+    var childCoordinator: Coordinator? { get set }
     var navigationController: UINavigationController { get set }
-
 
     /// Displays the initial view for the coordinator, effectively passing control to the coordinator
     func start()
