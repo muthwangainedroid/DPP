@@ -1,8 +1,8 @@
 //
-//  StartupState.swift
-//  TemplateApp
+//  FeedbackCoordinator.swift
+//  DPProtocols
 //
-//  Created by Steve Galbraith on 1/28/20.
+//  Created by Travis Fischer on 4/1/20.
 //  Copyright © 2020 Digital Products. All rights reserved.
 //
 
@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 import RxFeedback
 
-/// Ultimately, this should be moved to DPProtocols
 /// Adds support for RxFeedback to Coordinator patterns
 public protocol FeedbackCoordinator : Coordinator {
     associatedtype Event
@@ -23,7 +22,7 @@ public protocol FeedbackCoordinator : Coordinator {
 }
 
 public extension FeedbackCoordinator {
-    /// Start method will initialize RXFeedback loop
+    /// Start method will initialize RxFeedback loop
     func start() {
         Observable.system(initialState: initialState,
                       reduce: reduce,

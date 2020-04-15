@@ -1,6 +1,6 @@
 //
 //  ViewModel.swift
-//  TemplateApp
+//  DPProtocols
 //
 //  Created by travis.r.fischer on 4/2/20.
 //  Copyright © 2020 Digital Products. All rights reserved.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-/// Move to DPProtocols
 /// Protocol for consistently defined ViewModel interface
 public protocol ViewModel {
     associatedtype Input
