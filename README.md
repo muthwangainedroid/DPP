@@ -8,8 +8,10 @@ Swift Package of DigitalProducts architecture related protocols for modular proj
 2. [Protocols](#protocols)
    1. [Announceable](#announceable)
    2. [Bindable](#bindable)
-   3. [Coordinator](#coordinator)
-   4. [Logger](#logger)
+   3. [ViewModel](#viewmodel)
+   4. [Coordinator](#coordinator)
+   5. [FeedbackCoodinator](#feedbackcoordinator)
+   5. [Logger](#logger)
    5. [Repository](#repository)
    6. [Storyboardable](#storyboardable)
 
@@ -111,6 +113,11 @@ Once the view model and view controller are defined and the view controller conf
 
 _____
 
+### <span id="viewmodel">ViewModel</span>
+The ViewModel protocol helps define consistent interfaces for view models, specifically an `Input` and `Output` interface (typically a struct of Observers and Observables) .
+
+---
+
 ### <span id="coordinator">Coordinator</span>
 Use of the [coordinator pattern](https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps) simplifies the navigation of the app and allows the app to follow the single responsibility principle and separation of concerns by holding all navigation logic in one place and not spread out through the view controllers and view models.
 
@@ -168,6 +175,15 @@ struct MyViewModel {
 }
 ```
 _____
+
+### <span id="feedbackcoordinator">FeedbackCoordinator</span>
+Extension on the `Coordinator` that adds support for using the `RxFeedback` library.
+
+The `FeedbackCoordinator` now has a `State` (typically a struct) that will be changed based on the triggering of an `Event`. The coordinator contains a `reduce` function that takes an existing state and an event and reduces it to an updated state and a `feedback` loop observes `State` changes and returns an `Observable<Event>`.
+
+The `Coordinator` start method is defined in a `FeedbackCoordinator` extension that will start the RxFeedback loop.  ViewModels in applications using `FeedbackCoordinator` should have an `Observable<Event>` as one of the members of the ViewModel's `Output` struct. A posted event to that Observable will trigger the `reduce` function to calculate the new `State` of the Coordinator.  The state change will trigger the feedback loop in which a new view should be created, associated with a ViewModel, and pushed onto the view stack. The `Observable<Event>` from the new `ViewModel`'s `Output` should be returned from the feedback method, continuing RxFeedback change. 
+
+----
 
 ### <span id="logger">Logger</span>
 Logging is an important part of any robust application and can make debugging issues much easier.
